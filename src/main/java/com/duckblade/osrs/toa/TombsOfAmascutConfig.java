@@ -1,5 +1,6 @@
 package com.duckblade.osrs.toa;
 
+import com.duckblade.osrs.toa.features.nexus.BundleType;
 import com.duckblade.osrs.toa.features.QuickProceedSwaps.QuickProceedEnableMode;
 import com.duckblade.osrs.toa.features.boss.kephri.swarmer.SwarmerFonts;
 import com.duckblade.osrs.toa.features.boss.kephri.swarmer.SwarmerPanelManager;
@@ -1333,4 +1334,59 @@ public interface TombsOfAmascutConfig extends Config
 	)
 	void setPurpleDryStreakCount(int count);
 
+	@ConfigSection(
+			name = "Helpful Spirit",
+			description = "Configuration for Helpful Spirit supplies.",
+			position = 14,
+			closedByDefault = true
+	)
+	String SECTION_HELPFUL_SPIRIT = "sectionHelpfulSpirit";
+
+	@ConfigItem(
+			name = "Highlight Correct Bundle",
+			description = "Highlight selected Helpful Spirit bundle.",
+			position = 0,
+			keyName = "enableHighlightBundles",
+			section = SECTION_HELPFUL_SPIRIT
+	)
+	default boolean enableHighlightBundles()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			name = "Deprioritize Other Bundles",
+			description = "Prevent misclicks on other Helpful Spirit bundles.",
+			position = 1,
+			keyName = "deprioritizeOtherBundles",
+			section = SECTION_HELPFUL_SPIRIT
+	)
+	default boolean deprioritizeOtherBundles()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			keyName = "firstHelpfulSpiritSelection",
+			name = "First Bundle Selection",
+			description = "First Helpful Spirit resource option to highlight",
+			position = 1,
+			section = SECTION_HELPFUL_SPIRIT
+	)
+	default BundleType firstHelpfulSpiritSelection()
+	{
+		return BundleType.POWER;
+	}
+
+	@ConfigItem(
+			keyName = "secondHelpfulSpiritSelection",
+			name = "Second Bundle Selection",
+			description = "Second Helpful Spirit resource option to highlight",
+			position = 2,
+			section = SECTION_HELPFUL_SPIRIT
+	)
+	default BundleType secondHelpfulSpiritSelection()
+	{
+		return BundleType.LIFE;
+	}
 }
