@@ -19,7 +19,7 @@ import net.runelite.client.util.ImageUtil;
 public class UpdateNotifier implements PluginLifecycleComponent
 {
 
-	public static final int TARGET_VERSION = 15;
+	public static final int TARGET_VERSION = 16;
 	private static final BufferedImage PANEL_ICON = ImageUtil.loadImageResource(UpdateNotifier.class, "icon.png");
 
 	private final ClientToolbar clientToolbar;
@@ -147,6 +147,9 @@ public class UpdateNotifier implements PluginLifecycleComponent
 			case 14:
 				updates.add("<strong>(Points Tracker)</strong> Jagex now invisibly transmits your final point total at the end of the raid, which will be shown on the overlay. Points shown during the raid are still estimated, so you may notice a potentially large points adjustment when the raid concludes.");
 				updates.add("<strong>(Points Tracker -> Enable Overlay)</strong> A new option exists to only show the points overlay when in the tomb (loot room).");
+
+			case 15:
+				updates.add("<string>(Helpful Spirit)</strong> now has additional options to prevent misclicks on the wrong bundles.");
 		}
 
 		return updates;
